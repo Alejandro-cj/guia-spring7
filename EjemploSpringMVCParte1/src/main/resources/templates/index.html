@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h2>PAGINA DE INICIO</h2>
+        <p th:text="${mensaje}"></p>
+        <p th:text="${dato}"></p>
+        <hr><!-- comment -->
+        <<b>CEDULA</b><<span th:text="${alguien.cedula}">text</span>
+        <<b>CLAVE</b><<span th:text="${alguien.clave}">text</span>
+        <<b>NOMBRE</b><<span th:text="${alguin.nombre}">text</span>
+        <<b>EMAIL</b><<span th:text="${alguien.email}">text</span>
+        <hr><!-- comment -->
+        <h4>lista de personas</h4>
+        <hr><!-- comment -->
+        <div th:if="${usuarios != null and !usuarios.empy}">
+            <table border="1">
+                <tr>
+                    <th>CEDULA</th>
+                    <th>CLAVE</th>
+                    <th>NOMBRE</th>
+                    <th>EMAIL</th>
+                </tr>
+                <tr>
+                    <td th:each="u: ${usuarios}"></td>
+                    <td th:text="${u.cedula}"></td>
+                    <td th:text="${u.clave}"></td>
+                    <td th:text="${u.nombre}"></td>
+                    <td th:text="${u.email}"></td>
+                </tr>
+            </table>
+        </div>
+        <div th:if="${}usuarios == null or usuarios.empty">
+            La lista de usuarios esta vacia
+        </div>
+
+    </body>
+</html>
